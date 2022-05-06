@@ -1,0 +1,80 @@
+#
+
+config_name : "5g_data_setting"
+
+generate_dataset : False
+supervised_learning : True
+one_step_reinforcement_learning : False
+reinforcement_learning : False
+
+
+#
+algorithm_config:
+  buffer_name : "random_constrained_buffer"
+  algorithm_name : "bcmq_lr1e4_batch32_buffer50"
+  batch_size: 32
+  bcq_threshold : 0.3
+  save_name : "pinv"
+
+  buffer_max_size : 50
+  discount_factor : 0.995
+  trial : 20
+  learning_rate: 0.0001
+
+algorithm_evaluation_config:
+  test_interval: 100
+  test_episodes: 1000
+  num_max_steps : 20000
+
+# SCENARIO SETTINGS
+episode_config:
+  episode_length : 10
+  num_epi : 100000
+  train_epi_indices : [0,1,2,3,4,5,6,7,8]
+  test_epi_indices : [10,11,12,13,14,15,16,17,18,19]
+
+
+# WIRELESS SETTINGS
+# This setting was referenced in the following materials.
+# [1] https://ieeexplore-ieee-org.ezproxy.lib.utexas.edu/stamp/stamp.jsp?tp=&arnumber=7522613
+# [2] Dr. Faris's Deep RL for 5G Network
+system_model_config:
+
+  cell_radius : &cell_radius 150 # in meters.
+  inter_site_distance : 225 # 3 * cell_radius / 2.
+  test_field_size : 400 # 800 x 800m
+
+
+  backhaul_delay : 300 # timeslot
+  signal_power : 10 # watt
+
+  num_ue : 2 #3
+  ue_max_speed : 0.55555555 #m/s
+  ue_min_speed : 0.5555555 # m/s
+  init_x_coordinate : [32.4759,    32.4759,  129.90381]
+  init_y_coordinate : [56.25,      168.75 , 112.5]
+
+  # Number of base stations and their coordinates. DO NOT CHANGE THE VALUE
+  num_bs : 2
+  bs_x_coordinate : [ 0.,    0.,  194.85571585 ]
+  bs_y_coordinate : [ 0.,  225.,  112.5]
+
+
+
+
+
+  feedback_time_interval : 0.04
+
+  M_ULA : 16 # BS employs a uniform lin4ear array (ULA) of M antennas
+  gamma_0 : 5 # beamforming constant SINR.
+  min_sinr : -3 # in dB
+  # sinr_target : self.gamma_0 + 10*np.log10(self.M_ULA) # in dB.
+  max_tx_power : 40 # in Watts
+  max_tx_power_interference : 40 # in Watts
+  center_frequency : 28000000000 # Hz
+  G_ant_no_beamforming : 11 # dBi
+  prob_LOS : 0.8 # Probability of LOS transmission
+  noise_power : 6.003e-17  # T x B x Boltzman
+  T : 290 # Kelvins
+  B : 15000 # Hz
+  k_Boltzmann : 1.38e-23
