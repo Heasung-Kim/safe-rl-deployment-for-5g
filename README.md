@@ -1,6 +1,10 @@
 # safe-rl-deployment-for-5g
 CS394R final Project
 
+## Authors
+Heasung Kim
+Sravan Ankireddy
+
 ## Abstract
    In this project, we consider the problem of network parameter optimization for rate maximization. We frame this as a joint optimization problem of power control, beam forming, and interference cancellation. We consider the setting where multiple Base Stations (BSs) are communicating with multiple user equipments (UEs). 
    Because of the exponential computational complexity of brute force search, we instead solve this non-convex optimization problem using deep reinforcement learning (RL) techniques. The modern communication systems are notorious for their difficulty in exactly modeling their behaviour. This limits us in using RL based algorithms as interaction with the environment is needed for the agent to explore and learn efficiently. Further, it is ill advised to deploy the algorithm in real world for exploration and learning because of the high cost of failure. In contrast to the previous RL based solutions proposed, such as deep-Q network (DQN)  based control, we propose taking an offline model based approach. We specifically consider discrete batch constrained deep Q-learning (BCQ) and show that performance similar to DQN can be acheived with only a fraction of the data and without the need for exploration. This results in maximizing sample efficiency and minimizing risk in the deployment of a new algorithm to commercial networks.
