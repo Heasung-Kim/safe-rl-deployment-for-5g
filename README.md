@@ -39,7 +39,7 @@ Your experimental results will be generated in the following directory
 
 *****
 
-## How to change parameters?
+## How to change the parameters?
 *****
 Please change the parameters in config.yaml
 
@@ -49,6 +49,16 @@ We do not recommend you to change wireless settings.
 
 
 *****
+
+## Data Analysis
+*****
+You can use your newly-generated results or you can show the figures by running some plot-generators in the following directory
+
+    \data_analysis
+
+
+*****
+
 
 ## Results
 
@@ -60,12 +70,12 @@ Learning curves of average sum of rewards over 1,000 radio frames (episodes). Th
 <img src="https://github.com/Heasung-Kim/safe-rl-deployment-for-5g/blob/main/data/figures/average_reward_vs_learning_iter_LRdiffer.jpg" width="70%" height="70%" title="mainfig" alt="average_reward_vs_learning_iter_LRdiffer"></img>
 Learning curves of average sum of rewards over 1,000 radio frames (episodes). The width equal to the deviation from the mean is filled with the corresponding color. In order to minimize the uncertainty due to randomness and to measure the exact performance of the algorithms, the same experiment was repeated 10 times with the same set of parameters for each of the approaches.
 
-### Batch size Matters
+### Batch size 
 <img src="https://github.com/Heasung-Kim/safe-rl-deployment-for-5g/blob/main/data/figures/average_reward_vs_learning_iter_CBdiffer.jpg" width="70%" height="70%" title="mainfig" alt="average_reward_vs_learning_iter_CBdiffer"></img>
 Learning curves of average sum of rewards over 1,000 radio frames (episodes). The width equal to the deviation from the mean is filled with the corresponding color. In order to minimize the uncertainty due to randomness and to measure the exact performance of the algorithms, the same experiment was repeated 10 times with the same set of parameters for each of the approaches.
 
 
-### Dataset Quality Matters
+### Dataset Quality 
 <img src="https://github.com/Heasung-Kim/safe-rl-deployment-for-5g/blob/main/data/figures/average_reward_vs_learning_iter_unifandbiased_caption.jpg" width="70%" height="70%" title="mainfig" alt="average_reward_vs_learning_iter_unifandbiased_caption"></img>
 Learning curves of average sum of rewards over 1,000 radio frames (episodes). The width equal to the deviation from the mean is filled with the corresponding color. In order to minimize the uncertainty due to randomness and to measure the exact performance of the algorithms, the same experiment was repeated 10 times with the same set of parameters for each of the approaches.
 
