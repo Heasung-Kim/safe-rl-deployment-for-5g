@@ -81,7 +81,7 @@ Learning curves of average sum of rewards over 1,000 radio frames (episodes). Th
 
 
 ## Copyrights
-The following files are written based on the "TF2RL" codes [3] for fair performance comparison. If you want to get the experiment results of the SAC and the DQN, you need to install the "TF2RL" library and run run_DQN.py and SAC_discrete.py.
+The following files are written based on the "TF2RL" codes [1] for fair performance comparison. If you want to get the experiment results of the SAC and the DQN, you need to install the "TF2RL" library and run run_DQN.py and SAC_discrete.py.
 
     /trainers
     /run_DQN.py
