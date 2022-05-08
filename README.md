@@ -2,8 +2,7 @@
 CS394R final Project
 
 ## Authors
-Heasung Kim
-Sravan Ankireddy
+Heasung Kim and Sravan Ankireddy
 
 ## Abstract
    In this project, we consider the problem of network parameter optimization for rate maximization. We frame this as a joint optimization problem of power control, beam forming, and interference cancellation. We consider the setting where multiple Base Stations (BSs) are communicating with multiple user equipments (UEs). 
