@@ -11,17 +11,20 @@ reinforcement_learning : False
 #
 algorithm_config:
   buffer_name : "random_constrained_buffer"
-  algorithm_name : "bcmq_lr1e4_batch32_buffer50"
+  algorithm_name : "bcmq_lr1e4_batch32_buffer10000_new"
   batch_size: 32
   bcq_threshold : 0.3
   save_name : "pinv"
 
-  buffer_max_size : 50
+  buffer_max_size : 10000
   discount_factor : 0.995
   trial : 20
   learning_rate: 0.0001
 
+  bs_coordination_level: 3 # 1, 2, 3
+
 algorithm_evaluation_config:
+  basic_action: False
   test_interval: 100
   test_episodes: 1000
   num_max_steps : 20000
@@ -29,7 +32,7 @@ algorithm_evaluation_config:
 # SCENARIO SETTINGS
 episode_config:
   episode_length : 10
-  num_epi : 100000
+  num_epi : 20000
   train_epi_indices : [0,1,2,3,4,5,6,7,8]
   test_epi_indices : [10,11,12,13,14,15,16,17,18,19]
 
@@ -65,7 +68,7 @@ system_model_config:
 
   feedback_time_interval : 0.04
 
-  M_ULA : 16 # BS employs a uniform lin4ear array (ULA) of M antennas
+  M_ULA :  16 #16 # BS employs a uniform lin4ear array (ULA) of M antennas
   gamma_0 : 5 # beamforming constant SINR.
   min_sinr : -3 # in dB
   # sinr_target : self.gamma_0 + 10*np.log10(self.M_ULA) # in dB.

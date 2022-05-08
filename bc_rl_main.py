@@ -18,9 +18,15 @@ def get_constrained_randomly_generated_batch(config, replay_buffer):
     cnt = 0
     while(cnt < buffer_max_size):
         state = env.reset()
-        done =  False
         for t in range(int(epi_length_max)):
-            action = env.action_space.sample()
+            if config["algorithm_config"]["bs_coordination_level"] == 3:
+                action = env.action_space.sample()
+            elif config["algorithm_config"]["bs_coordination_level"] == 2:
+                action = np.random.randint(0,3,size=1)[0]
+                if np.random.rand() < 0.2:
+                    action = env.action_space.sample()
+            else:                # No coordination
+                action = np.random.randint(0,3,size=1)[0]
             next_state, reward, done, info = env.step(action)
             # Store data in replay buffer
             replay_buffer.add_sample(state, action, next_state, reward, done*1.0)
@@ -52,8 +58,8 @@ def train(config, env, replay_buffer, device):
     test_interval = config["algorithm_evaluation_config"]["test_interval"]
     for i in range(max_num_steps):
         if i % test_interval == 0:
-            print("Current Learning step: ", max_num_steps)
-            evaluation, SINR_1_history, SINR_2_history, transmission_power_1_history, transmission_power_2_history = eval_policy(config, policy)
+            print("Current Learning step: ", i , "//", max_num_steps)
+            evaluation, SINR_1_history, SINR_2_history, transmission_power_1_history, transmission_power_2_history = test(config, policy)
             average_returns.append(evaluation)
             if len(SINR_1_history) > 0:
                 SINR_1_historys.extend(SINR_1_history)
@@ -64,7 +70,7 @@ def train(config, env, replay_buffer, device):
     Path(os.path.join(DATA_STORAGE, algorithm_name)).mkdir(parents=True, exist_ok=True)
     save_algorithm_result(os.path.join(DATA_STORAGE, algorithm_name), average_returns, SINR_1_historys, SINR_2_historys,transmission_power_1_historys, transmission_power_2_historys)
 
-def eval_policy(config, policy):
+def test(config, policy):
 
     eval_env = Environment(config=config, TRAIN_MODE=False)
     test_episodes = config["algorithm_evaluation_config"]["test_episodes"]
@@ -79,7 +85,7 @@ def eval_policy(config, policy):
     for i in range(test_episodes):
         state, done = eval_env.reset(), False
         while not done:
-            action = policy.select_model_based_rollout_action(np.array(state), env=eval_env) # policy.select_action(np.array(state))
+            action = policy.select_model_based_rollout_action(np.array(state), env=eval_env)
             state, reward, done, info = eval_env.step(action)
             average_return += reward
         SINR_1_history, SINR_2_history, transmission_power_1_history, transmission_power_2_history = eval_env.get_history_data(check_condition=True,

@@ -23,7 +23,7 @@ projects_directory = os.path.abspath(os.path.join(ROOT_DIR, os.pardir))
 results_save_path = os.path.join(projects_directory, "results")
 
 
-def get_reward_history_data(algorithm_name, num_trial=10):
+def get_reward_history_data(algorithm_name, num_trial=20):
     data = []
 
     for i in range(num_trial):

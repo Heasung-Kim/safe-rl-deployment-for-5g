@@ -21,6 +21,8 @@ class Replay_Buffer(object):
         self.save_directory = directory
         self.batch_size = self.config["algorithm_config"]["batch_size"]
 
+        self.bs_coordination =  self.config["algorithm_config"]["bs_coordination_level"]
+
     def add_sample(self, state, action, next_state, reward, done):
         self.state[int(self.buffer_pointer % self.max_num_sample)] = state
         self.action[int(self.buffer_pointer % self.max_num_sample)] =  action

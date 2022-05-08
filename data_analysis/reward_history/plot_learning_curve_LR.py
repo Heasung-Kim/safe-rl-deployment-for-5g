@@ -46,31 +46,31 @@ if __name__ == '__main__':
 
 
 
-    bcmq_mean, bcmq_std = get_reward_history_data("bcmq_lr1e5_batch32_buffer20000")
-    plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
-                     bcmq_mean + bcmq_std, alpha=0.1,
-                     color="r")
-    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="r",
-             label="bcmq_lr1e5_batch32_buffer20000")
-
-
-    bcmq_mean, bcmq_std = get_reward_history_data("bcmq_lr1e4_batch32_buffer20000")
-    plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
-                     bcmq_mean + bcmq_std, alpha=0.1,
-                     color="g")
-    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="g",
-             label="bcmq_lr1e4_batch32_buffer20000")
 
     bcmq_mean, bcmq_std = get_reward_history_data("bcmq_lr1e3_batch32_buffer20000")
     plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
                      bcmq_mean + bcmq_std, alpha=0.1,
                      color="b")
     plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="b",
-             label="bcmq_lr1e3_batch32_buffer20000")
+             label="BCMQ, Learning Rate 1e-3")
+
+
+    bcmq_mean, bcmq_std = get_reward_history_data("bcmq_lr1e4_batch32_buffer20000")
+    plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
+                     bcmq_mean + bcmq_std, alpha=0.1,
+                     color="g")
+    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'v-', color="g",
+             label="BCMQ, Learning Rate 1e-4")
 
 
 
 
+    bcmq_mean, bcmq_std = get_reward_history_data("bcmq_lr1e5_batch32_buffer20000")
+    plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
+                     bcmq_mean + bcmq_std, alpha=0.1,
+                     color="r")
+    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'X-', color="r",
+             label="BCMQ, Learning Rate 1e-5")
 
     plt.legend(loc="lower right")
     plt.xlabel("Learning Iteration (1e2)")

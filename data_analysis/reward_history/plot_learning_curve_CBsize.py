@@ -67,7 +67,7 @@ if __name__ == '__main__':
                      bcmq_mean + bcmq_std, alpha=0.1,
                      color="orange")
     plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="orange",
-             label="bcmq_lr1e4_batch32_buffer10000")
+             label="BCMQ, 10000 batches")
 
 
 
@@ -83,8 +83,8 @@ if __name__ == '__main__':
     plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
                      bcmq_mean + bcmq_std, alpha=0.1,
                      color="g")
-    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="g",
-             label="bcmq_lr1e4_batch32_buffer1000")
+    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'v-', color="g",
+             label="BCMQ, 1000 batches")
 
 
 
@@ -93,16 +93,16 @@ if __name__ == '__main__':
     plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
                      bcmq_mean + bcmq_std, alpha=0.1,
                      color="dodgerblue")
-    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="dodgerblue",
-             label="bcmq_lr1e4_batch32_buffer100")
+    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'X-', color="dodgerblue",
+             label="BCMQ, 100 batches")
 
 
     bcmq_mean, bcmq_std = get_reward_history_data("bcmq_lr1e4_batch32_buffer50")
     plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
                      bcmq_mean + bcmq_std, alpha=0.1,
                      color="b")
-    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="b",
-             label="bcmq_lr1e4_batch32_buffer50")
+    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 's-', color="b",
+             label="BCMQ, 50 batches")
 
 
     plt.legend(loc="lower right")
