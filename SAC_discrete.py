@@ -4,16 +4,9 @@ import yaml
 import os
 from trainers.global_trainer import GlobalTrainer
 from env.dynamic_envinronment import Environment
-
 from global_config import ROOT_DIR, DATA_STORAGE
-
-import gym
-
 from tf2rl.algos.sac_discrete import SACDiscrete
 from trainers.conditional_trainer import ConditionalTrainer
-from tf2rl.envs.utils import is_atari_env
-from tf2rl.envs.atari_wrapper import wrap_dqn
-from tf2rl.networks.atari_model import AtariQFunc, AtariCategoricalActor
 from env.dynamic_envinronment import Environment
 
 def train_agent_with_env(config):
