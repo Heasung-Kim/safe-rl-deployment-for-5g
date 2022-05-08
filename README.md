@@ -74,11 +74,11 @@ The following files are written based on the "TF2RL" codes [3] for fair performa
     /run_DQN.py
     /SAC_discrete.py
 
-Our main algorithm is based on the Batch Constrained Q-Learning [2,3]. 
+Our main algorithm is based on the Batch Constrained Q-Learning [2,3] and https://github.com/sfujim/BCQ.
 
     /BCMQ.py
     
-The 5G Network Wireless Settings are followed by [4] for the fair performance comparison. All the codes in the following directory is borrowed from [4].
+The 5G Network Wireless Settings are followed by [4] for the fair performance comparison. All the codes in the following directory is borrowed from [4] and https://github.com/farismismar/Deep-Reinforcement-Learning-for-5G-Networks.
 
     /env/channel
 
