@@ -16,7 +16,7 @@ Please run the python file
 
     python bc_rl_main.py
 
-
+You may want to check the required Python libraries. Please see environment_requirements.yml 
 *****
 
 
