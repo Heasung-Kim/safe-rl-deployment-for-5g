@@ -100,5 +100,5 @@ All other code is copyrighted by the authors of this repository.
 ## References
 [1] K. Ota, “Tf2rl,” https://github.com/keiohta/tf2rl/, 2020. \
 [2] S. Fujimoto, D. Meger, and D. Precup, “Off-policy deep reinforcement learning without exploration,” in International Conference on Machine Learning. PMLR, 2019, pp. 2052–2062.\
-[3] S. Fujimoto, H. Hoof, and D. Meger, “Addressing function approxi- mation error in actor-critic methods,” in International conference on machine learning. PMLR, 2018, pp. 1587–1596.\
+[3] S. Fujimoto, H. Hoof, and D. Meger, “Addressing function approximation error in actor-critic methods,” in International conference on machine learning. PMLR, 2018, pp. 1587–1596.\
 [4] F. B. Mismar, B. L. Evans, and A. Alkhateeb, “Deep reinforcement learning for 5g networks: Joint beamforming, power control, and inter- ference coordination,” IEEE Transactions on Communications, vol. 68, no. 3, pp. 1581–1592, 2019.
