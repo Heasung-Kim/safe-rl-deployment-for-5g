@@ -90,10 +90,12 @@ class BCMQ(object):
             log_action_probability = self.G(state)
             action_probability = log_action_probability.exp()
 
-            # "Use large negative number to mask actions from argmax from https://github.com/sfujim/BCQ/ "
+            # ===========================================================================================================
+            # BCQ Logic: code from "Use large negative number to mask actions from argmax from https://github.com/sfujim/BCQ/ "
             action_probability = (action_probability / action_probability.max(1, keepdim=True)[0] > self.threshold).float()
             candidates =  (action_probability * q + (1. - action_probability) * -1e8)
             values,indices = candidates.topk(2)
+            # ===========================================================================================================
 
             # For the state dynamics' deterministic property, we can get the "estimated" next state
             next_state_1 = env.expect_next_state(state, int(indices[0][0]))
@@ -119,11 +121,12 @@ class BCMQ(object):
         q_s = self.Q(next_state)
         log_action_probability = self.G(next_state)
 
-        # BCQ Logic: "Use large negative number to mask actions from argmax from https://github.com/sfujim/BCQ/ "
+        # ===========================================================================================================
+        # BCQ Logic: code from "Use large negative number to mask actions from argmax from https://github.com/sfujim/BCQ/ "
         next_action_probability = log_action_probability.exp()
         next_action_probability = (next_action_probability / next_action_probability.max(1, keepdim=True)[0] > self.threshold).float()
         next_action = (next_action_probability * q_s+ (1 - next_action_probability) * -1e8).argmax(1, keepdim=True)
-
+        # ===========================================================================================================
         q_s= self.Q_target(next_state)
 
         # if done flag is true, then the epi (RF) is aborted, no more discounted reward sum.
@@ -144,7 +147,6 @@ class BCMQ(object):
         self.G_optimizer.zero_grad()
         g_loss.backward()
         self.G_optimizer.step()
-
         self.soft_target_update()
 
     def soft_target_update(self):

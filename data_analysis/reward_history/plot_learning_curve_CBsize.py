@@ -61,12 +61,20 @@ if __name__ == '__main__':
     #         label="bcmq_lr1e4_batch32_buffer20000")
 
 
+    bcmq_mean, bcmq_std = get_reward_history_data("bcmq_lr1e4_batch32_buffer20000")
+    plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
+                     bcmq_mean + bcmq_std, alpha=0.1,
+                     color="r")
+    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="r",
+             label="BCMQ, 20000 batches")
+
+
 
     bcmq_mean, bcmq_std = get_reward_history_data("bcmq_lr1e4_batch32_buffer10000")
     plt.fill_between(np.arange(len(bcmq_mean)), bcmq_mean - bcmq_std,
                      bcmq_mean + bcmq_std, alpha=0.1,
                      color="orange")
-    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, 'o-', color="orange",
+    plt.plot(np.arange(len(bcmq_mean)), bcmq_mean, '^-', color="orange",
              label="BCMQ, 10000 batches")
 
 
